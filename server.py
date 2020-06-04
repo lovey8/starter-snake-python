@@ -46,7 +46,8 @@ class Battlesnake(object):
 
         # Choose a random direction to move in
         possible_moves = ["up", "down", "left", "right"]
-        move = random.choice(possible_moves)
+        #move = random.choice(possible_moves)
+        move = "up"
 
         print(f"MOVE: {move}")
         return {"move": move}
@@ -66,7 +67,7 @@ if __name__ == "__main__":
     server = Battlesnake()
     cherrypy.config.update({"server.socket_host": "0.0.0.0"})
     cherrypy.config.update(
-        {"server.socket_port": int(os.environ.get("PORT", "8080")),}
+        {"server.socket_port": int(os.environ.get("PORT", "8080")), }
     )
     print("Starting Battlesnake Server...")
     cherrypy.quickstart(server)
